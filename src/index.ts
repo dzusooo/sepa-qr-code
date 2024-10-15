@@ -63,8 +63,7 @@ export class SEPAQRGenerator {
       data.bic || '',
       data.name,
       data.iban,
-      data.currency || 'EUR',
-      data.amount || '',
+      (data.currency || 'EUR') + (data.amount || '1'),
       data.purposeCode || '',
       data.remittanceInfo || '',
       data.beneficiaryToOriginator || ''

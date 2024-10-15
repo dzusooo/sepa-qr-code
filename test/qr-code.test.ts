@@ -49,7 +49,7 @@ describe('SEPAQRGenerator', () => {
     it('should generate raw content for UTF8 output type', async () => {
       const result = await sepaQR.generateQRCode(validData, 'utf8');
       expect(typeof result).toBe('string');
-      expect(result).toBe('BCD\n002\n1\nSCT\nBFSWDE33BER\nWikimedia Foerdergesellschaft\nDE33100205000001194700\nEUR\n10.00\nGDDS\nDonation to Wikipedia\nThank you for your donation');
+      expect(result).toBe('BCD\n002\n1\nSCT\nBFSWDE33BER\nWikimedia Foerdergesellschaft\nDE33100205000001194700\nEUR10.00\nGDDS\nDonation to Wikipedia\nThank you for your donation');
     });
 
     it('should throw an error for unsupported output type', async () => {
@@ -115,13 +115,13 @@ describe('SEPAQRGenerator', () => {
       const dataWithoutCurrency = { ...validData };
       delete dataWithoutCurrency.currency;
       const result = await sepaQR.generateQRCode(dataWithoutCurrency, 'utf8');
-      expect(result).toContain('\nEUR\n');
+      expect(result).toContain('\nEUR');
     });
 
     it('should use specified currency', async () => {
       const dataWithCustomCurrency = { ...validData, currency: 'USD' };
       const result = await sepaQR.generateQRCode(dataWithCustomCurrency, 'utf8');
-      expect(result).toContain('\nUSD\n');
+      expect(result).toContain('\nUSD');
     });
 
     it('should throw an error for invalid currency', async () => {
@@ -134,7 +134,7 @@ describe('SEPAQRGenerator', () => {
       for (const currency of currencies) {
         const dataWithCurrency = { ...validData, currency };
         const result = await sepaQR.generateQRCode(dataWithCurrency, 'utf8');
-        expect(result).toContain(`\n${currency}\n`);
+        expect(result).toContain(`\n${currency}`);
       }
     });
   });
@@ -142,7 +142,7 @@ describe('SEPAQRGenerator', () => {
   describe('content generation', () => {
     it('should generate correct content string', async () => {
       const result = await sepaQR.generateQRCode(validData, 'utf8');
-      expect(result).toBe('BCD\n002\n1\nSCT\nBFSWDE33BER\nWikimedia Foerdergesellschaft\nDE33100205000001194700\nEUR\n10.00\nGDDS\nDonation to Wikipedia\nThank you for your donation');
+      expect(result).toBe('BCD\n002\n1\nSCT\nBFSWDE33BER\nWikimedia Foerdergesellschaft\nDE33100205000001194700\nEUR10.00\nGDDS\nDonation to Wikipedia\nThank you for your donation');
     });
 
     it('should handle optional fields correctly', async () => {
@@ -151,7 +151,7 @@ describe('SEPAQRGenerator', () => {
         iban: 'DE89370400440532013000',
       };
       const result = await sepaQR.generateQRCode(minimalData, 'utf8');
-      expect(result).toBe('BCD\n002\n1\nSCT\n\nJohn Doe\nDE89370400440532013000\nEUR\n\n\n\n');
+      expect(result).toBe('BCD\n002\n1\nSCT\n\nJohn Doe\nDE89370400440532013000\nEUR1\n\n\n');
     });
   });
 });
