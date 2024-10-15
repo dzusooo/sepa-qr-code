@@ -1,6 +1,6 @@
 {
   "name": "sepa-qr-code",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A TypeScript library for generating SEPA/EPC QR Codes",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,6 +9,7 @@
     "test": "jest --coverage",
     "prepublishOnly": "npm run build"
   },
+  "homepage": "https://github.com/dzusooo/sepa-qr-code",
   "keywords": [
     "sepa",
     "qr code",
