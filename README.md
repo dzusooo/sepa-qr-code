@@ -17,13 +17,13 @@ A TypeScript library for generating EPC/SEPA (Single Euro Payments Area) QR Code
 ## Installation
 
 ```bash
-npm install sepa-qr-generator
+npm install sepa-qr-code
 ```
 
 ## Usage
 
 ```typescript
-import { SEPAQRGenerator, SEPAData } from "sepa-qr-generator";
+import { SEPAQRGenerator, SEPAData } from "sepa-qr-code";
 
 const generator = new SEPAQRGenerator();
 
