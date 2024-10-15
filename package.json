@@ -1,0 +1,37 @@
+{
+  "name": "sepa-qr-code",
+  "version": "1.0.0",
+  "description": "A TypeScript library for generating SEPA/EPC QR Codes",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --coverage",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "sepa",
+    "qr code",
+    "epc",
+    "payment",
+    "generator"
+  ],
+  "author": "Kristián Hvasta",
+  "license": "MIT",
+  "dependencies": {
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.13",
+    "@types/node": "^22.7.5",
+    "@types/qrcode": "^1.5.5",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.3"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
+}
